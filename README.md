@@ -1,16 +1,18 @@
->They rally round the family! With a pocket full of shells
+>Rally round the family! 
+>
+>With a pocket full of shells
 >
 >Bulls on parade
 >
->Bulls in the market, Bulls on rockets
+>Bulls on rockets
 
-# bullrocket
+# BullRocket
 
 Stock market analysis with various Machine Learning algorithms.
 
 ## Usage
 
-FIXME
+
 
 ## License
 
