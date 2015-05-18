@@ -22,7 +22,7 @@
 (deftest iterate-means-test
   (testing "iterate thru means"
     (is (= ((iterate-means data distance average) '(0 10)) '(10/3 55)))
-    (is (= ((iterate-means data distance average) '(10/3 55)) '(10/3 55)))
+    (is (= ((iterate-means data distance average) '(10/3 55)) '(37/6 101)))
     (is (= (take 4 (iterate (iterate-means data distance average) '(0 10))) '((0 10) (10/3 55) (37/6 101) (37/6 101))))))
 
 (deftest k-cluster-test
@@ -34,7 +34,7 @@
     (is (= (take-while-unstable '(1 2 3 4 5 6 7 7 7 7)) '(1 2 3 4 5 6 7)))
     (is (= (take-while-unstable (iterate (iterate-means data distance average)'(0 10))) '((0 10) (10/3 55) (37/6 101))))
     (is (= (take-while-unstable (map #(k-cluster data distance %) (iterate (iterate-means data distance average) '(0 10))))
-           '([2 3 5 6 10 11] [100 101 102])))))
+           '(([2 3 5] [6 10 11 100 101 102]) ([2 3 5 6 10 11] [100 101 102]))))))
 
 (def grouper
   (k-groups data distance average))
@@ -53,7 +53,7 @@
                                     ([2 3 5] [6 10 11] [100 101 102])
                                     ([2] [3 5 6] [10 11] [100 101 102])
                                     ([2 3] [5 6] [10 11] [100 101 102]))))
-    (is (= (grouper (range 200)) '(([2] [3] [100] [5] [101] [6] [102] [10] [11]))))))
+    (is (= (sort-by first (first (grouper (range 200)))) (sort-by first '([2] [3] [100] [5] [101] [6] [102] [10] [11]))))))
 
 
 (deftest vec-average-and-vec-distance-test
