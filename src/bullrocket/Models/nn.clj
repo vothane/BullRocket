@@ -1,12 +1,6 @@
 (ns bullrocket.Models.nn
   (:use incanter.core))
 
-;; truth table for XOR logic gate
-(def sample-data [[[0 0] [0]]
-                   [[0 1] [1]]
-                   [[1 0] [1]]
-                   [[1 1] [0]]])
-
 (defprotocol NeuralNetwork
   (run        [network inputs])
   (run-binary [network inputs])
@@ -213,33 +207,3 @@
   "Round outputs to nearest integer."
   [output]
   (mapv #(Math/round ^Double %) output))
-
-(defrecord MultiLayerPerceptron [options]
-  NeuralNetwork
-  (run [network inputs]
-    (let [weights (:weights network)
-          input-activations (matrix inputs)]
-      (forward-propagate weights input-activations)))
-  (run-binary [network inputs]
-    (round-output (run network inputs)))
-  (train-ann [network samples]
-    (let [options         (:options network)
-          hidden-neurons  (:hidden-neurons options)
-          epsilon         (:weight-epsilon options)
-          [first-in
-           first-out]     (first samples)
-          num-inputs      (length first-in)
-          num-outputs     (length first-out)
-          sample-matrix   (map #(list (matrix (first %))
-                                      (matrix (second %)))
-                               samples)
-          layer-sizes     (conj (vec (cons num-inputs
-                                           hidden-neurons))
-                                num-outputs)
-          new-weights     (random-initial-weights layer-sizes epsilon)
-          network         (assoc network :weights new-weights)]
-      (gradient-descent-bprop network sample-matrix))))
-
-(defn train [samples]
-  (let [network (MultiLayerPerceptron. default-options)]
-    (train-ann network samples)))

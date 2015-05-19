@@ -7,7 +7,6 @@
            [[1 0] [1]]
            [[1 1] [0]]])
 
-
 (def default-options
   {:max-iters 100
    :desired-error 0.20
@@ -16,11 +15,15 @@
    :learning-momentum 0.01
    :weight-epsilon 50})
 
-(def NN (train data))
+;(defn train [samples]
+;  (let [network (MultiLayerPerceptron. default-options)]
+;    (train-ann network samples)))
 
-(deftest run-binary-test
-  (testing "finding closet data point"
-    (is (=  (run-binary NN  [0 1]) [1]))
-    (is (=  (run-binary NN  [1 0]) [1]))
-    (is (=  (run-binary NN  [0 0]) [0]))
-    (is (=  (run-binary NN  [1 1]) [1]))))
+;(def NN (train data))
+
+;(deftest run-binary-test
+;  (testing "finding closet data point"
+;    (is (=  (run-binary NN  [0 1]) [1]))
+;    (is (=  (run-binary NN  [1 0]) [1]))
+;    (is (=  (run-binary NN  [0 0]) [0]))
+;    (is (=  (run-binary NN  [1 1]) [1]))))
