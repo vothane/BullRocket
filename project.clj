@@ -5,4 +5,5 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.encog/encog-core "3.2.0"]
-                 [enclog "0.6.5"]])
+                 [enclog "0.6.5"]
+		 [org.clojure/data.csv "0.1.3"]])
