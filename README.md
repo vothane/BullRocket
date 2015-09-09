@@ -1,10 +1,4 @@
->Rally round the family! 
->
->With a pocket full of shells
->
->Bulls on parade
->
->Bulls on rockets
+>Rocket science for the stock market. No Bullshit.
 
 # BullRocket
 
