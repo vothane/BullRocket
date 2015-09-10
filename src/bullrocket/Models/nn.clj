@@ -12,7 +12,7 @@
 
 (defn read-stocks [file]
   (with-open [f (io/reader file)]
-    (doall (mapv convert-data (drop 1 (csv/read-csv f))))))
+    (doall (mapv #(convert-data %) (drop 1 (csv/read-csv f))))))
 
 (defn make-net [n-features hidden-nodes]
   (nnets/network (nnets/neural-pattern :feed-forward)
