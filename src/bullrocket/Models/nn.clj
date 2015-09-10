@@ -8,7 +8,7 @@
 
 (defn convert-data [row]
   (let [[_ open _ _ close _] row]
-    (if (< open close) 1 -1)))
+    (if (< (read-string open) (read-string close)) 1 -1)))
 
 (defn read-stocks [file]
   (with-open [f (io/reader file)]
