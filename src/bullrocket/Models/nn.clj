@@ -21,7 +21,7 @@
                  :hidden [hidden-nodes]
                  :output 1))
 
-(defn data [features target]
+(defn normalize [features target]
   (let [x (apply interleave (mapv #(read-stocks %) features))
         y (read-stocks target)]
     (vector x y)))
