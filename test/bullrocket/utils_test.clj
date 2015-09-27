@@ -4,7 +4,7 @@
 
 (deftest parse-csv-test
   (testing "should parse csv"
-    (let [result (parse-csv "test/bullrocket/data/GLD.csv")
+    (let [result (parse-csv "test/bullrocket/data/FXB.csv")
           header (first result)
           data   (rest result)]
       (is (= (count data) 754))
