@@ -41,3 +41,6 @@
         y (transform k y)]
     (vector x y)))
 
+(defn train-nn [nn data alg iter exp-err]
+  (let [trainer (trainer alg :network nn :traing-set data)]
+    (train trainer exp-err iter [])))
