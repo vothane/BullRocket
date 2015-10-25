@@ -35,12 +35,12 @@
   (let [x (mapv #(read-stocks %) features)
         y (vector (read-stocks target))
         k (->> (mapv keys (conj x y))
-               (drop-last) 
+               (drop-last)
                (common-keys))
         x (transform k x)
         y (transform k y)]
     (vector x y)))
 
 (defn train-nn [nn data alg iter exp-err]
-  (let [trainer (trainer alg :network nn :traing-set data)]
+  (let [trainer (trainer alg :network nn :training-set data)]
     (train trainer exp-err iter [])))
