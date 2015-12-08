@@ -4,11 +4,9 @@
 
 Stock market analysis with various Machine Learning algorithms.
 
-## Usage
+## Neural Networks
 
-# Neural Networks
-
-The objective of the test case is to understand the correlation factors
+The objective of this test case is to understand the correlation factors
 between the exchange rate of some currencies, the spot price of gold and
 the S&P 500 index. This is important in the diversification of an
 investment portfolio (long term investing not hi-freq trading). In
@@ -24,15 +22,17 @@ discuss here en.wikipedia.org/wiki/Feature_selection.
 For this exercise, we will use the following exchange-traded funds
 (ETFs) as proxies for exchange rate of currencies:
 
-• FXA: Rate of an Australian dollar in US dollar
-• FXB: Rate of a British pound in US dollar
-• FXE: Rate of an Euro in US dollar
-• FXC: Rate of a Canadian dollar in US dollar
-• FXF: Rate of a Swiss franc in US dollar
-• FXY: Rate of a Japanese yen in US dollar
-• CYB: Rate of a Chinese yuan in US dollar
-• SPY: S&P 500 index
-• GLD: The price of gold in US dollar
+Code | Actual
+---- | -------------------------------------------
+FXA  | Rate of an Australian dollar in US dollar
+FXB  | Rate of a British pound in US dollar
+FXE  | Rate of an Euro in US dollar
+FXC  | Rate of a Canadian dollar in US dollar
+FXF  | Rate of a Swiss franc in US dollar
+FXY  | Rate of a Japanese yen in US dollar
+CYB  | Rate of a Chinese yuan in US dollar
+SPY  | S&P 500 index
+GLD  | The price of gold in US dollar
 
 Practically, the problem to solve is to extract one or more regressive
 models that link one ETFs y with a basket of other ETFs {xi} y=f(xi).
@@ -42,9 +42,6 @@ exchange rate of the Euro in US dollar (FXE) and the exchange rate of
 the Australian dollar in US dollar (FXA), and so on? If so, the
 regression f will be defined as FXY = f (GLD, FXE, FXA).
 
-## License
-
-Copyright © 2015 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Through experimentation we find that **FXE** as some correlation with the
+combinations of *(FXA, SPY, GLD, FXB, FXF, FXD, FXY, CYB)*,
+*(FXC, GLD, FXA, FXY, FXB)* and *(FXF, FXB, CYB)*.

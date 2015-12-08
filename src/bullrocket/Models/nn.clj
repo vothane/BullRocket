@@ -19,9 +19,9 @@
 
 (defn make-net [n-features hidden-nodes]
   (nnets/network (nnets/neural-pattern :feed-forward)
-                 :activation :sigmoid
+                 :activation :tanh
                  :input n-features
-                 :hidden [hidden-nodes]
+                 :hidden hidden-nodes
                  :output 1))
 
 (defn common-keys [ks]
