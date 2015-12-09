@@ -42,6 +42,8 @@ exchange rate of the Euro in US dollar (FXE) and the exchange rate of
 the Australian dollar in US dollar (FXA), and so on? If so, the
 regression f will be defined as FXY = f (GLD, FXE, FXA).
 
-Through experimentation we find that **FXE** as some correlation with the
+Through experimentation we find that **FXE** has some correlation with the
 combinations of *(FXA, SPY, GLD, FXB, FXF, FXD, FXY, CYB)*,
 *(FXC, GLD, FXA, FXY, FXB)* and *(FXF, FXB, CYB)*.
+
+## K-Means Clustering
