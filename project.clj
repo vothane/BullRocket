@@ -6,5 +6,4 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.encog/encog-core "3.2.0"]
                  [enclog "0.6.5"]
-		             [org.clojure/data.csv "0.1.3"]
-                 [cc.artifice/clj-ml "0.6.0"]])
+                 [org.clojure/data.csv "0.1.3"]])
