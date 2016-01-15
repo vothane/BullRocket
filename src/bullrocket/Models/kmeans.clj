@@ -2,23 +2,23 @@
   (:require [incanter.core :as i]
             [incanter.io]
             [incanter.zoo :as zoo]
+            [incanter.stats :as s]
             [clj-time.format :as tf]))
 
 (def ^:dynamic *formatter* (tf/formatter "dd-MMM-yy"))
 (defn parse-date [date] (tf/parse *formatter* date))
 
-(def data
+(defn get-data [data-file]
   (i/add-derived-column
     :date [:date-str] parse-date
-    (i/col-names
-      (incanter.io/read-dataset data-file)
-      [:date-str :open :high :low :close :volume])))
+    (i/col-names (incanter.io/read-dataset data-file :header true) [:date-str :open :high :low :close :volume :adj-close])))
 
-(def data-zoo (zoo/zoo data :date))
+(defn data-zoo [data-file]
+  (zoo/zoo (get-data data-file) :date))
 
-(def data-roll5
-  (->>
-    (i/sel data-zoo :cols :close)
-    (zoo/roll-mean 5)
-    (i/dataset [:five-day])
-    (i/conj-cols data-zoo)))
+(defn data-roll80 [data-file]
+  (let [data (data-zoo data-file)]
+    (->> (i/sel data :cols :close)
+         (zoo/roll-mean 60)
+         (i/dataset [:60day])
+         (i/conj-cols data))))

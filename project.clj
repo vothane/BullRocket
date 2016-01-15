@@ -7,5 +7,5 @@
                  [org.encog/encog-core "3.2.0"]
                  [enclog "0.6.5"]
                  [org.clojure/data.csv "0.1.3"]
-                 [incanter "1.9.0"]
-                 [incanter/incanter-zoo "1.9.0"]])
+                 [incanter "1.5.6"]
+                 [incanter/incanter-zoo "1.5.6"]])
