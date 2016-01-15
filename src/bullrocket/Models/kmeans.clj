@@ -16,9 +16,18 @@
 (defn data-zoo [data-file]
   (zoo/zoo (get-data data-file) :date))
 
-(defn data-roll80 [data-file]
+(defn normalize
+  "Normalizes time series in range [0,1]. Feature scaling of all stocks for KMeans."
+  [data]
+  (let [_min (apply min data)
+        _max (apply max data)
+        norm (fn [x] (/ (- x _min) (- _max _min)))]
+    (map norm data)))
+
+(defn data-roll60 [data-file]
   (let [data (data-zoo data-file)]
     (->> (i/sel data :cols :close)
          (zoo/roll-mean 60)
+         (normalize)
          (i/dataset [:60day])
          (i/conj-cols data))))
