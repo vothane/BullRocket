@@ -47,3 +47,7 @@ combinations of *(FXA, SPY, GLD, FXB, FXF, FXD, FXY, CYB)*,
 *(FXC, GLD, FXA, FXY, FXB)* and *(FXF, FXB, CYB)*.
 
 ## K-Means Clustering
+
+Trying to reproduce the the experiment here (a powerpoint download) 
+
+[download](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=4&cad=rja&uact=8&ved=0ahUKEwib8rKrg7zKAhVBxWMKHbtGAvUQFggvMAM&url=http%3A%2F%2Fwww.cs.dartmouth.edu%2F~datamining%2FWeiPanUmangBhaskar.ppt&usg=AFQjCNGfRLyZRSZSS2rNuOI6SZWl3ipo6A)
