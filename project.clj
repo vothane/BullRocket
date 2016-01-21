@@ -8,4 +8,5 @@
                  [enclog "0.6.5"]
                  [org.clojure/data.csv "0.1.3"]
                  [incanter "1.5.6"]
-                 [incanter/incanter-zoo "1.5.6"]])
+                 [incanter/incanter-zoo "1.5.6"]
+                 [org.clojure/math.numeric-tower "0.0.4"]])
